@@ -77,11 +77,6 @@ src/main/java
 │   ├── BalanceService
 │   ├── MetroCardProcessor
 │   └── OutputService
-│
-└── util
-    ├── DiscountCalculator
-    └── ServiceFeeCalculator
-```
 
 ---
 
@@ -109,35 +104,6 @@ The solution was designed around:
   * Return journey discount
   * Recharge service fee
   * Passenger counting
-
-This approach keeps business rules explicit and easy to maintain.
-
-### Testability
-
-Output generation was separated from console printing to simplify unit testing.
-
-### Enums for Domain Concepts
-
-Enums are used for:
-
-* PassengerType
-* Station
-
-This provides type safety and avoids string-based errors.
-
-### computeIfAbsent for Aggregates
-
-Station summaries are created lazily using `computeIfAbsent()` to ensure consistent aggregate management.
-
----
-
-## Assumptions
-
-* Card IDs are unique.
-* Input commands are valid.
-* Passenger fares are fixed.
-* Return journeys receive a 50% discount.
-* Recharge service fee is applied according to challenge requirements.
 
 ---
 
